@@ -12,24 +12,14 @@
              data-bs-ride="carousel">
  
             <div class="carousel-inner">
+                {% for banner in banners %}
+                    <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
  
-                <div class="carousel-item active">
+                        <img src="{{ banner.img.url }}" class="d-block w-100" alt="Slide 1">
  
-                    <img src="imgs/21.jpg" class="d-block w-100" alt="Slide 1">
+                    </div>
+                {% endfor %}
  
-                </div>
- 
-                <div class="carousel-item">
- 
-                    <img src="imgs/22.jpg" class="d-block w-100" alt="Slide 1">
- 
-                </div>
- 
-                <div class="carousel-item">
- 
-                    <img src="imgs/23.jpg" class="d-block w-100" alt="Slide 1">
- 
-                </div>
  
             </div>
  
@@ -60,63 +50,26 @@
             <h1 class="text-center mb-4 section-heading">Services</h1>
 	
             <div class="row">
+                {% for service in services %}
+                    <div class="col-md-4">
 	
-                <div class="col-md-4">
+                        <div class="card">
+ 
+                            <img src="{{ service.img.url }}" class="card-img-top" alt="...">
+ 
+                            <div class="card-body">
+ 
+                                <h3 class="card-title">{{ service.title }}</h3>
+ 
+                                <p class="card-text">{{ service.detail|truncatechars:5 }}</p>
+                                <a href="service.php" class="btn btn-primary">Read More</a>
+ 
+                            </div>
 	
-                    <div class="card">
- 
-                        <img src="imgs/cardio-1.jpg" class="card-img-top" alt="...">
- 
-                        <div class="card-body">
- 
-                            <h3 class="card-title">Cardio</h3>
- 
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="service.php" class="btn btn-primary">Read More</a>
- 
                         </div>
 	
                     </div>
-	
-                </div>
-	
-                <div class="col-md-4">
-	
-                    <div class="card">
- 
-                        <img src="imgs/body-2.jpg" class="card-img-top" alt="...">
- 
-                        <div class="card-body">
- 
-                            <h3 class="card-title">Body Building</h3>
- 
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="service.php" class="btn btn-primary">Read More</a>
- 
-                        </div>
-	
-                    </div>
-	
-                </div>
-	
-                <div class="col-md-4">
-	
-                    <div class="card">
- 
-                        <img src="imgs/dance-3.jpg" class="card-img-top" alt="...">
- 
-                        <div class="card-body">
- 
-                            <h3 class="card-title">Dancing</h3>
- 
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="service.php" class="btn btn-primary">Read More</a>
- 
-                        </div>
-	
-                    </div>
-	
-                </div>
+                {% endfor %}
 	
             </div>
 	
@@ -140,7 +93,7 @@
                         </p>
 	
                         <p>
-                            <a href="page.php" class="btn btn-info text-white">Read More</a>
+                            <a href="{% url 'pagedetail' 1 %}" class="btn btn-info text-white">Read More</a>
                         </p>
 	
                     </div>
