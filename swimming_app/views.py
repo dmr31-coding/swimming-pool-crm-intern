@@ -38,3 +38,20 @@ def enquiry(request):
             msg = "Data has been saved."
     form = forms.EnquiryForm
     return render(request, "bootstrap/enquiry.html", {"form": form, "msg": msg})
+
+
+# Show galleries
+def gallery(request):
+    gallery = models.Gallery.objects.all().order_by("-id")
+    return render(request, "bootstrap/gallery.html", {"galleries": gallery})
+
+
+# Show gallery photos
+def gallery_detail(request, id):
+    gallery = models.Gallery.objects.get(id=id)
+    gallery_imgs = models.GalleryImage.objects.filter(gallery=gallery).order_by("-id")
+    return render(
+        request,
+        "bootstrap/gallery_img.html",
+        {"gallery_imgs": gallery_imgs, "gallery": gallery},
+    )
