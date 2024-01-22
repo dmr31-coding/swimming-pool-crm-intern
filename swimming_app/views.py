@@ -55,3 +55,9 @@ def gallery_detail(request, id):
         "bootstrap/gallery_img.html",
         {"gallery_imgs": gallery_imgs, "gallery": gallery},
     )
+
+
+# Subcription plan
+def pricing(request):
+    pricing = models.SubPlan.objects.all()
+    return render(request, "bootstrap/pricing.html", {"plans": pricing})

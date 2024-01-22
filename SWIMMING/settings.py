@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -133,3 +134,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Splash Admin",
+    "site_header": "Splash Admin",  # Ensure correct casing here
+    "order_with_respect_to": [
+        "auth",
+        "Swimming_App.banners",
+        "Swimming_App.service",
+        "Swimming_App.enquiry",
+        "Swimming_App.gallery",
+        "Swimming_App.GalleryImage",
+        "Swimming_App.Page",
+        "Swimming_App.Page",
+        "Swimming_App.Faq",
+        "Swimming_App.SubPlan",
+        "Swimming_App.SubPlanFeature",
+    ],
+}
