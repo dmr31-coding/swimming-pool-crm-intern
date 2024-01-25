@@ -76,7 +76,7 @@ class SubPlanFeatureAdmin(admin.ModelAdmin):
     list_display = ("title", "subplans")
 
     def subplans(self, obj):
-        return " | ".join([sub.title for sub in obj.subplan.all()])
+        return " | ".join([sub.title for sub in obj.subplan.all().order_by("price")])
 
 
 admin.site.register(models.SubPlanFeature, SubPlanFeatureAdmin)

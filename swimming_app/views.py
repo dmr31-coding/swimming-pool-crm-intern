@@ -11,8 +11,11 @@ from . import forms
 def home(request):
     banners = models.Banners.objects.all()
     services = models.Service.objects.all()[:3]
+    gimgs = models.GalleryImage.objects.all().order_by("-id")[:9]
     return render(
-        request, "bootstrap/home.html", {"banners": banners, "services": services}
+        request,
+        "bootstrap/home.html",
+        {"banners": banners, "services": services, "gimgs": gimgs},
     )
 
 
@@ -59,7 +62,7 @@ def gallery_detail(request, id):
 
 # Subcription plan
 def pricing(request):
-    pricing = models.SubPlan.objects.all()
+    pricing = models.SubPlan.objects.all().order_by("price")
     dfeatures = models.SubPlanFeature.objects.all()
     return render(
         request, "bootstrap/pricing.html", {"plans": pricing, "dfeatures": dfeatures}

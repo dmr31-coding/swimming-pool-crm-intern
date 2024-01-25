@@ -153,3 +153,7 @@ JAZZMIN_SETTINGS = {
         "Swimming_App.SubPlanFeature",
     ],
 }
+
+
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "login"

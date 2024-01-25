@@ -95,7 +95,7 @@ class SubPlan(models.Model):
 
 # Subcripton Plans Feature
 class SubPlanFeature(models.Model):
-    # subplan = models.ForeignKey(SubPlan, on_delete=models.CASCADE)
+    # subplan = models.ForeignKey(SubPlan, on_delete=models.CASCADE,null = True)
     subplan = models.ManyToManyField(SubPlan)
     title = models.CharField(max_length=150)
 
